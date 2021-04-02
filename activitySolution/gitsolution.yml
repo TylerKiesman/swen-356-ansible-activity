@@ -1,0 +1,25 @@
+- name: This is a hello-word example
+  hosts: localhost
+
+  tasks:
+    - name: Create a file with the text 'hello world'
+      copy:
+        content: hello world from Ansible!
+        dest: PATH HERE
+
+    - name: Printing statement
+      debug:
+        msg: Welcome to Ansible!
+
+- name: Download Git project
+  hosts: localhost
+
+  tasks:
+
+    # First escalate privilege, then clone the repository to the destination
+    # You may need to run the playbook with the option --ask-become-pass to put in the password to escalate privilege
+    - name: Clone ansible-examples directory
+      become: true
+      git:
+        repo: https://github.com/ansible/ansible-examples.git
+        dest: PATH HERE

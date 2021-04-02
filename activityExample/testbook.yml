@@ -1,0 +1,18 @@
+# The name of this play in the playbook
+- name: This is a hello world example
+
+  # The list of hosts you want to manage, for us it's just localhost
+  hosts: localhost
+
+  tasks:
+
+    # This task will create a new file with the text 'hello world from Ansible!'
+    - name: Create a file with the text 'hello world'
+      copy:
+        content: hello world from Ansible!
+        dest: helloworld.txt
+
+    # This task will use the debugging module to print out a statement
+    - name: Printing statement
+      debug:
+        msg: Welcome to Ansible!
